@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  totoropara:
+    image: ghcr.io/lixiang810/totoro-paradise
+    container_name: totoro-paradise
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
