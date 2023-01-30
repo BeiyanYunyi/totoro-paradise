@@ -12,6 +12,7 @@
         to="https://github.com/lixiang810/totoro-paradise"
         class="hover:decoration-underline text-blue p-2 border rounded ms-2 flex items-center"
         rel="noreferrer noopener"
+        target="_blank"
       >
         <div class="i-mdi-github mr-2 text-2xl" />
         获取项目源码
