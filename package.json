@@ -15,7 +15,8 @@
     "@types/md5": "^2.3.2",
     "@types/minimist": "^1.2.2",
     "@types/uuid": "^9.0.0",
-    "nuxt": "^3.1.0"
+    "nuxt": "^3.1.0",
+    "wrangler": "^2.8.1"
   },
   "dependencies": {
     "@unocss/nuxt": "^0.49.1",
