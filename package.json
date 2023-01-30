@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.44",
     "@types/cli-progress": "^3.11.0",
     "@types/md5": "^2.3.2",
     "@types/minimist": "^1.2.2",

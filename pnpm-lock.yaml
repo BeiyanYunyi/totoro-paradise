@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify-json/mdi': ^1.1.44
   '@types/cli-progress': ^3.11.0
   '@types/md5': ^2.3.2
   '@types/minimist': ^1.2.2
@@ -33,6 +34,7 @@ dependencies:
   uuid: 9.0.0
 
 devDependencies:
+  '@iconify-json/mdi': 1.1.44
   '@types/cli-progress': 3.11.0
   '@types/md5': 2.3.2
   '@types/minimist': 1.2.2
@@ -771,9 +773,14 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
+  /@iconify-json/mdi/1.1.44:
+    resolution: {integrity: sha512-Apg9JY3jzWUTNiDWVBo7pD0WUAxdgoDhqr+X5TF1X6kVmM6U4Uo+Fo9dFaf4Qfwfsbt23zp2BHiaV1h1Hqm31g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: false
 
   /@iconify/utils/2.1.0:
     resolution: {integrity: sha512-ouXv1hQfOKq4k3wxQ2OJBYQ2gXBMeFoUCIiORmuUVUNlSq9oOTzQBF3jpFRb0+/P0bnV+RIoHcbZKufZTlJ16g==}
