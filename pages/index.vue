@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-start">
-    <img :src="data!.imgUrl" width="430" height="430" />
+    <img :src="data!.imgUrl" width="430" height="430" referrerpolicy="no-referrer" />
     <div class="flex mt-2">
       <NuxtLink
         :to="`/scanned/${data!.uuid}`"
