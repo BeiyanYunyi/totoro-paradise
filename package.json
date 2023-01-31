@@ -15,6 +15,7 @@
     "@types/cli-progress": "^3.11.0",
     "@types/md5": "^2.3.2",
     "@types/minimist": "^1.2.2",
+    "@types/node-rsa": "^1.1.1",
     "@types/uuid": "^9.0.0",
     "nuxt": "^3.1.0",
     "wrangler": "^2.8.1"

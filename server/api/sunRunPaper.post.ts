@@ -1,9 +1,10 @@
+import BasicRequest from '~~/src/types/requestTypes/BasicRequest';
 import TotoroApiWrapper from '~~/src/wrappers/TotoroApiWrapper';
 
 export default defineEventHandler(async (e) => {
-  const { token }: { token: string } = e.context.params;
+  const body = await readBody<BasicRequest>(e);
   try {
-    const paper = await TotoroApiWrapper.getSunRunPaper(decodeURIComponent(token));
+    const paper = await TotoroApiWrapper.getSunRunPaper(body);
     if (paper.ifHasRun === '0') {
       return {
         message: '登录成功',

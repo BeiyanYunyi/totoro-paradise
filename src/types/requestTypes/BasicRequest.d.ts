@@ -4,3 +4,7 @@ export default interface BasicRequest {
   stuNumber: string;
   token: string;
 }
+
+export interface PhoneRequest extends BasicRequest {
+  phoneNumber: string;
+}

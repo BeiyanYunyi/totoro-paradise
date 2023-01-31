@@ -31,17 +31,20 @@
   </div>
 </template>
 <script setup lang="ts">
+import useSession from '~~/state/useSession';
 
 const { data } = await useFetch('/api/scanQr');
 const router = useRouter();
 const message = ref('');
+const session = useSession();
 
 const handleScanned = async () => {
   const scanRes = await $fetch(`/api/scanQr/${data!.value!.uuid}`);
-  if (!scanRes.token) {
+  if (!scanRes.session) {
     message.value = scanRes.message;
   } else {
-    router.push(`/scanned/${encodeURIComponent(scanRes.token)}`);
+    session.value = scanRes.session;
+    router.push('/scanned');
   }
 };
 </script>

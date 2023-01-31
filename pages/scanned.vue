@@ -9,7 +9,7 @@
     <NuxtLink
       class="ms-2 hover:decoration-underline text-blue p-2 border rounded"
       v-if="selectValue"
-      :to="`/run/${encodeURIComponent(params.token as string)}/${encodeURIComponent(selectValue)}`"
+      :to="`/run/${encodeURIComponent(selectValue)}`"
     >
       开始跑步
     </NuxtLink>
@@ -17,13 +17,21 @@
   <div v-else>{{ data?.message }}</div>
 </template>
 <script setup lang="ts">
+import useSession from '~~/state/useSession';
 import useSunRunPaper from '~~/state/useSunRunPaper';
 
 const sunrunPaper = useSunRunPaper();
+const session = useSession();
 
-const { params } = useRoute();
-console.log(params);
-const { data } = await useFetch(`/api/sunRunPaper/${encodeURIComponent(params.token as string)}`);
+const { data } = await useFetch(`/api/sunRunPaper`, {
+  method: 'POST',
+  body: JSON.stringify({
+    token: session.value.token,
+    campusId: session.value.campusId,
+    schoolId: session.value.schoolId,
+    stuNumber: session.value.stuNumber,
+  }),
+});
 watchEffect(() => {
   if (data.value?.paper) {
     sunrunPaper.value = data.value.paper;

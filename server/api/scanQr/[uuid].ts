@@ -27,12 +27,10 @@ export default defineEventHandler(async (e) => {
       };
     }
     // 获取额外信息
-    const personalInfo = await TotoroApiWrapper.login(loginResult.token);
+    const personalInfo = await TotoroApiWrapper.login({ token: loginResult.token, code });
     return {
       message: '登录成功',
-      name: personalInfo.stuName,
-      id: personalInfo.studentId,
-      token: loginResult.token,
+      session: { ...personalInfo, token: loginResult.token, code, data: null },
     };
   } catch (e) {
     console.log(e);
