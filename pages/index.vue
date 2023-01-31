@@ -1,13 +1,23 @@
 <template>
   <div class="flex flex-col items-start">
-    <img :src="data!.imgUrl" width="430" height="430" referrerpolicy="no-referrer" />
+    <img
+      v-if="!message"
+      :src="data!.imgUrl"
+      width="430"
+      height="430"
+      class="h-[430px] w-[430px]"
+      referrerpolicy="no-referrer"
+    />
+    <div v-else class="h-[430px] w-[430px] flex items-center justify-center">
+      {{ message }}
+    </div>
     <div class="flex mt-2">
-      <NuxtLink
-        :to="`/scanned/${data!.uuid}`"
+      <button
         class="hover:decoration-underline text-blue p-2 border rounded"
+        @click="handleScanned"
       >
         已扫码
-      </NuxtLink>
+      </button>
       <NuxtLink
         to="https://github.com/lixiang810/totoro-paradise"
         class="hover:decoration-underline text-blue p-2 border rounded ms-2 flex items-center"
@@ -21,5 +31,17 @@
   </div>
 </template>
 <script setup lang="ts">
+
 const { data } = await useFetch('/api/scanQr');
+const router = useRouter();
+const message = ref('');
+
+const handleScanned = async () => {
+  const scanRes = await $fetch(`/api/scanQr/${data!.value!.uuid}`);
+  if (!scanRes.token) {
+    message.value = scanRes.message;
+  } else {
+    router.push(`/scanned/${encodeURIComponent(scanRes.token)}`);
+  }
+};
 </script>

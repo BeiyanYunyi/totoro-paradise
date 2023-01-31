@@ -17,29 +17,23 @@ export default defineEventHandler(async (e) => {
     };
   }
   try {
-    const loginResult = await TotoroApiWrapper.getLesseeServer(code);
+    await TotoroApiWrapper.getRegisterUrl();
+    const loginPromise = TotoroApiWrapper.getLesseeServer(code);
+    TotoroApiWrapper.getAppAd(code);
+    const loginResult = await loginPromise;
     if (!loginResult.token) {
       return {
-        message: loginResult.message,
+        message: loginResult.message!,
       };
     }
     // 获取额外信息
     const personalInfo = await TotoroApiWrapper.login(loginResult.token);
-    const paper = await TotoroApiWrapper.getSunRunPaper(loginResult.token);
-    if (paper.ifHasRun === '0') {
-      return {
-        message: '登录成功',
-        token: loginResult.token,
-        routes: paper.runPointList.map((it) => ({
-          value: it.pointId,
-          label: it.pointName,
-        })),
-      };
-    } else {
-      return {
-        message: '你已经跑过了',
-      };
-    }
+    return {
+      message: '登录成功',
+      name: personalInfo.stuName,
+      id: personalInfo.studentId,
+      token: loginResult.token,
+    };
   } catch (e) {
     console.log(e);
     return {
