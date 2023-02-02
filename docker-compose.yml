@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   totoropara:
-    image: ghcr.io/lixiang810/totoro-paradise:latest
+    image: ghcr.io/lixiang810/totoro-paradise:edge
     container_name: totoro-paradise
     build:
       context: .
