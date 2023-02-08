@@ -20,7 +20,7 @@
         已扫码
       </button>
       <NuxtLink
-        to="https://github.com/lixiang810/totoro-paradise"
+        to="https://github.com/BeiyanYunyi/totoro-paradise"
         class="hover:decoration-underline text-blue-500 p-2 outline outline-1 rounded ms-2 flex items-center"
         rel="noreferrer noopener"
         target="_blank"
