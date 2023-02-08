@@ -6,7 +6,6 @@ export default defineEventHandler(async (e) => {
     const scanResult = await $fetch<string>(
       `https://long.open.weixin.qq.com/connect/l/qrconnect?uuid=${e.context.params.uuid}&f=url`,
     );
-    console.log('scanned');
     const reg = new RegExp(/:\/\/oauth\?code=(\w+)&/);
     const res = reg.exec(scanResult);
     if (res === null) throw new Error('no code');
