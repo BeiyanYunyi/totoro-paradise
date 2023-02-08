@@ -50,6 +50,7 @@
         开始跑步
       </NuxtLink>
     </div>
+    <p class="text-xs">地图中的路线仅为展示路线生成效果，不等于最终路线</p>
     <div class="h-50vh w-50vw"><AMap :target="selectValue" @update:target="handleUpdate" /></div>
   </template>
   <div v-else>{{ data?.message }}</div>
