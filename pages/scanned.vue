@@ -24,40 +24,40 @@
       </tr>
     </tbody>
   </table>
-  <div v-if="data?.paper" class="flex flex-wrap items-center">
-    <select v-model="selectValue" class="bg-transparent p-2 border">
-      <option disabled value="">请选择路线</option>
-      <option v-for="route in data.paper.runPointList" :value="route.pointId">
-        {{ route.pointName }}
-      </option>
-    </select>
-    <button
-      class="text-blue-500 p-2 outline outline-1 rounded ms-2"
-      @click="
-        selectValue =
-          data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
-            .pointId
-      "
-    >
-      随机路线
-    </button>
-    <NuxtLink
-      class="ms-2 bg-blue-500 hover:bg-blue-400 transition text-stone-100 p-2 rounded"
-      v-if="selectValue"
-      :to="`/run/${encodeURIComponent(selectValue)}`"
-    >
-      开始跑步
-    </NuxtLink>
-  </div>
+  <template v-if="data?.paper">
+    <div class="flex flex-wrap items-center">
+      <select v-model="selectValue" class="bg-transparent p-2 border">
+        <option disabled value="">请选择路线</option>
+        <option v-for="route in data.paper.runPointList" :value="route.pointId">
+          {{ route.pointName }}
+        </option>
+      </select>
+      <button
+        class="text-blue-500 p-2 outline outline-1 rounded ms-2"
+        @click="
+          selectValue =
+            data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
+              .pointId
+        "
+      >
+        随机路线
+      </button>
+      <NuxtLink
+        class="ms-2 bg-blue-500 hover:bg-blue-400 transition text-stone-100 p-2 rounded"
+        v-if="selectValue"
+        :to="`/run/${encodeURIComponent(selectValue)}`"
+      >
+        开始跑步
+      </NuxtLink>
+    </div>
+    <div class="h-50vh w-50vw"><AMap :target="selectValue" @update:target="handleUpdate" /></div>
+  </template>
   <div v-else>{{ data?.message }}</div>
 </template>
 <script setup lang="ts">
-import useSession from '~~/state/useSession';
-import useSunRunPaper from '~~/state/useSunRunPaper';
-
 const sunrunPaper = useSunRunPaper();
 const session = useSession();
-
+const selectValue = ref('');
 const { data } = await useFetch(`/api/sunRunPaper`, {
   method: 'POST',
   body: JSON.stringify({
@@ -73,5 +73,7 @@ watchEffect(() => {
   }
 });
 
-const selectValue = ref('');
+const handleUpdate = (target: string) => {
+  selectValue.value = target;
+};
 </script>

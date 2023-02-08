@@ -2,9 +2,6 @@
   <div>{{ data?.message }}</div>
 </template>
 <script setup lang="ts">
-import useSession from '~~/state/useSession';
-import useSunRunPaper from '~~/state/useSunRunPaper';
-
 const sunRunPaper = useSunRunPaper();
 const { params } = useRoute();
 const session = useSession();

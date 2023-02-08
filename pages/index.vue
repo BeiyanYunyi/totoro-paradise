@@ -32,8 +32,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import useSession from '~~/state/useSession';
-
 const { data } = await useFetch('/api/scanQr');
 const router = useRouter();
 const message = ref('');

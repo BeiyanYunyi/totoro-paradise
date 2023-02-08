@@ -1,12 +1,12 @@
-import Vector from "../classes/Vector";
-import distanceOfLine from "./distanceCalculator";
-import formatRouteToAMap from "./formatRouteToAMap";
-import normalRandom from "./normalRandom";
-import RunPoint from "../types/RunPoint";
+import Vector from '../classes/Vector';
+import distanceOfLine from './distanceCalculator';
+import formatRouteToAMap from './formatRouteToAMap';
+import normalRandom from './normalRandom';
+import RunPoint from '../types/RunPoint';
 
 type Point = [number, number];
 
-const std = 1 / 75000;
+const std = 1 / 50000;
 
 /** 输入一个预期距离，返回一个模拟路线
  * @param {string} distance
@@ -24,10 +24,7 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   const addPoints = (pointA: Point, pointB: Point) => {
     const stepLength = 0.0001;
     const stepLengthnum = Number(stepLength);
-    const pointVector = new Vector([
-      pointB[0] - pointA[0],
-      pointB[1] - pointA[1],
-    ]);
+    const pointVector = new Vector([pointB[0] - pointA[0], pointB[1] - pointA[1]]);
     const numberOfPoints = Math.floor(pointVector.norm / Number(stepLength));
     const points = [pointA];
     for (let i = 1; i < numberOfPoints; i += 1) {
@@ -42,7 +39,7 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   // eslint-disable-next-line consistent-return
   const combinePoints = (): Point[] => {
     const { pointList } = taskToday;
-    if (!pointList[0].latitude) throw new Error("任务为空");
+    if (!pointList[0].latitude) throw new Error('任务为空');
     const route = formatRouteToAMap(pointList);
     const combinedPoints = [];
     for (let index = 0; index < route.length; index += 1) {

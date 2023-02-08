@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@amap/amap-jsapi-loader': ^1.0.1
   '@iconify-json/mdi': ^1.1.44
   '@types/cli-progress': ^3.11.0
   '@types/md5': ^2.3.2
@@ -22,6 +23,7 @@ specifiers:
   wrangler: ^2.8.1
 
 dependencies:
+  '@amap/amap-jsapi-loader': 1.0.1
   '@unocss/nuxt': 0.49.1
   '@unocss/reset': 0.49.1
   axios: 1.2.6
@@ -45,6 +47,10 @@ devDependencies:
   wrangler: 2.8.1
 
 packages:
+
+  /@amap/amap-jsapi-loader/1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==}
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
