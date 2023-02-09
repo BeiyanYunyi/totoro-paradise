@@ -4,7 +4,7 @@ export default defineEventHandler(async (e) => {
   let code: string;
   try {
     const scanResult = await $fetch<string>(
-      `https://long.open.weixin.qq.com/connect/l/qrconnect?uuid=${e.context.params.uuid}&f=url`,
+      `https://long.open.weixin.qq.com/connect/l/qrconnect?uuid=${e.context.params!.uuid}&f=url`,
     );
     const reg = new RegExp(/:\/\/oauth\?code=(\w+)&/);
     const res = reg.exec(scanResult);
@@ -19,8 +19,8 @@ export default defineEventHandler(async (e) => {
   try {
     await TotoroApiWrapper.getRegisterUrl();
     const loginPromise = TotoroApiWrapper.getLesseeServer(code);
-    TotoroApiWrapper.getAppAd(code);
-    const loginResult = await loginPromise;
+    const getAppAdPromise = TotoroApiWrapper.getAppAd(code);
+    const loginResult = (await Promise.all([loginPromise, getAppAdPromise]))[0];
     if (!loginResult.token) {
       return {
         message: loginResult.message!,
@@ -28,6 +28,8 @@ export default defineEventHandler(async (e) => {
     }
     // 获取额外信息
     const personalInfo = await TotoroApiWrapper.login({ token: loginResult.token, code });
+    // 删除下面这行会导致 Vercel 504 Gateway Time-out，我不知道为什么。
+    console.log('personalInfo');
     return {
       message: '登录成功',
       session: { ...personalInfo, token: loginResult.token, code, data: null },
