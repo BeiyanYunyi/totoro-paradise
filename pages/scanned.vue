@@ -61,12 +61,12 @@ const session = useSession();
 const selectValue = ref('');
 const { data } = await useFetch(`/api/sunRunPaper`, {
   method: 'POST',
-  body: JSON.stringify({
+  body: {
     token: session.value.token,
     campusId: session.value.campusId,
     schoolId: session.value.schoolId,
     stuNumber: session.value.stuNumber,
-  }),
+  },
 });
 watchEffect(() => {
   if (data.value?.paper) {

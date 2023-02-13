@@ -10,7 +10,7 @@ const target = computed(() => sunRunPaper.value.runPointList.find((r) => r.point
 const { data } = useFetch('/api/run', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
+  body: {
     phoneReq: {
       phoneNumber: session.value.phoneNumber,
       token: session.value.token,
@@ -20,6 +20,6 @@ const { data } = useFetch('/api/run', {
     },
     mileage: sunRunPaper.value.mileage,
     route: target.value,
-  }),
+  },
 });
 </script>
