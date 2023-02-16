@@ -13,20 +13,16 @@
       {{ message }}
     </div>
     <div class="flex mt-2">
-      <button
-        class="bg-blue-500 hover:bg-blue-400 transition text-stone-100 p-2 rounded"
-        @click="handleScanned"
-      >
-        已扫码
-      </button>
+      <VBtn color="primary" @click="handleScanned">已扫码</VBtn>
       <NuxtLink
         to="https://github.com/BeiyanYunyi/totoro-paradise"
-        class="hover:decoration-underline text-blue-500 p-2 outline outline-1 rounded ms-2 flex items-center"
         rel="noreferrer noopener"
         target="_blank"
       >
-        <div class="i-mdi-github mr-2 text-2xl" />
-        获取项目源码
+        <VBtn color="primary" class="ml-2">
+          <span class="i-mdi-github mr-2 text-2xl" />
+          获取项目源码
+        </VBtn>
       </NuxtLink>
     </div>
   </div>

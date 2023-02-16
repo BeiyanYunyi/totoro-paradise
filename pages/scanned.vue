@@ -26,12 +26,14 @@
   </table>
   <template v-if="data?.paper">
     <div class="flex flex-wrap items-center">
-      <select v-model="selectValue" class="bg-transparent p-2 border">
-        <option disabled value="">请选择路线</option>
-        <option v-for="route in data.paper.runPointList" :value="route.pointId">
-          {{ route.pointName }}
-        </option>
-      </select>
+      <VSelect
+        v-model="selectValue"
+        :items="data.paper.runPointList"
+        item-title="pointName"
+        item-value="pointId"
+        variant="solo"
+        single-line
+      />
       <button
         class="text-blue-500 p-2 outline outline-1 rounded ms-2"
         @click="
