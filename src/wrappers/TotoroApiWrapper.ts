@@ -134,14 +134,7 @@ const TotoroApiWrapper = {
     return data;
   },
 
-  async sunRunExercises(
-    route: Route,
-    phoneReq: BasicRequest & { phoneNumber: string },
-  ): Promise<SunRunExercisesResponse> {
-    const req: SunRunExercisesRequest & Record<string, unknown> = await generateSunRunExercisesReq({
-      ...phoneReq,
-      ...route,
-    });
+  async sunRunExercises(req: SunRunExercisesRequest): Promise<SunRunExercisesResponse> {
     const { data }: { data: SunRunExercisesResponse } = await this.client.post(
       '/platform/recrecord/sunRunExercises',
       encryptRequestContent(req),

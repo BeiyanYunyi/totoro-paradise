@@ -1,57 +1,50 @@
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th colspan="2">个人信息</th>
-      </tr>
-    </thead>
+  <p>请核对个人信息</p>
+  <VTable density="compact">
     <tbody>
       <tr>
-        <td class="text-center">学校</td>
-        <td class="text-center">{{ session.campusName }}</td>
+        <td>学校</td>
+        <td>{{ session.campusName }}</td>
       </tr>
       <tr>
-        <td class="text-center">学院</td>
-        <td class="text-center">{{ session.collegeName }}</td>
+        <td>学院</td>
+        <td>{{ session.collegeName }}</td>
       </tr>
       <tr>
-        <td class="text-center">学号</td>
-        <td class="text-center">{{ session.stuNumber }}</td>
+        <td>学号</td>
+        <td>{{ session.stuNumber }}</td>
       </tr>
       <tr>
-        <td class="text-center">姓名</td>
-        <td class="text-center">{{ session.stuName }}</td>
+        <td>姓名</td>
+        <td>{{ session.stuName }}</td>
       </tr>
     </tbody>
-  </table>
+  </VTable>
   <template v-if="data?.paper">
-    <div class="flex flex-wrap items-center">
-      <VSelect
-        v-model="selectValue"
-        :items="data.paper.runPointList"
-        item-title="pointName"
-        item-value="pointId"
-        variant="solo"
-        single-line
-      />
-      <button
-        class="text-blue-500 p-2 outline outline-1 rounded ms-2"
-        @click="
-          selectValue =
-            data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
-              .pointId
-        "
-      >
-        随机路线
-      </button>
-      <NuxtLink
-        class="ms-2 bg-blue-500 hover:bg-blue-400 transition text-stone-100 p-2 rounded"
-        v-if="selectValue"
-        :to="`/run/${encodeURIComponent(selectValue)}`"
-      >
-        开始跑步
-      </NuxtLink>
-    </div>
+    <VSelect
+      v-model="selectValue"
+      :items="data.paper.runPointList"
+      item-title="pointName"
+      item-value="pointId"
+      variant="solo"
+      label="路线"
+      class="mt-2"
+    />
+    <VBtn
+      variant="outlined"
+      color="primary"
+      @click="
+        selectValue =
+          data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
+            .pointId
+      "
+    >
+      随机路线
+    </VBtn>
+    <NuxtLink v-if="selectValue" :to="`/run/${encodeURIComponent(selectValue)}`">
+      <VBtn class="ms-2" color="primary">开始跑步</VBtn>
+    </NuxtLink>
+    <VBtn v-else class="ms-2" color="primary" disabled>开始跑步</VBtn>
     <p class="text-xs">地图中的路线仅为展示路线生成效果，不等于最终路线</p>
     <div class="h-50vh w-50vw"><AMap :target="selectValue" @update:target="handleUpdate" /></div>
   </template>
