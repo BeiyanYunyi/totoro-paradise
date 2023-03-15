@@ -4,7 +4,15 @@
   <p class="text-body-1">开跑时会向龙猫服务器发送请求，所以请尽量不要在开跑后取消</p>
   <VBtn color="primary" @click="handleRun">确认开跑</VBtn>
   <p>{{ timePassed }}/{{ needTime }}</p>
-  <VProgressLinear v-if="timePassed && needTime" :model-value="timePassed / needTime" />
+  <VProgressLinear
+    color="primary"
+    v-if="timePassed && needTime"
+    :model-value="(timePassed / needTime) * 100"
+    height="25"
+    rounded
+  >
+    <strong>{{ Math.ceil((timePassed / needTime) * 100) }}%</strong>
+  </VProgressLinear>
 </template>
 <script setup lang="ts">
 import generateRunReq from '~~/src/controllers/generateSunRunExercisesReq';
