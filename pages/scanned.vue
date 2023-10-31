@@ -46,7 +46,11 @@
     </NuxtLink>
     <VBtn v-else class="ms-2" color="primary" disabled>开始跑步</VBtn>
     <p class="text-xs">地图中的路线仅为展示路线生成效果，不等于最终路线</p>
-    <div class="h-50vh w-50vw"><AMap :target="selectValue" @update:target="handleUpdate" /></div>
+    <div class="h-50vh w-50vw">
+      <ClientOnly>
+        <AMap :target="selectValue" @update:target="handleUpdate" />
+      </ClientOnly>
+    </div>
   </template>
   <div v-else>{{ data?.message }}</div>
 </template>

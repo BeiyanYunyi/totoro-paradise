@@ -1,4 +1,4 @@
-import BasicRequest from '~~/src/types/requestTypes/BasicRequest';
+import type BasicRequest from '~~/src/types/requestTypes/BasicRequest';
 import TotoroApiWrapper from '~~/src/wrappers/TotoroApiWrapper';
 
 export default defineEventHandler(async (e) => {
@@ -13,12 +13,14 @@ export default defineEventHandler(async (e) => {
     } else {
       return {
         message: '你已经跑过了',
+        paper: null,
       };
     }
   } catch (error) {
     console.log(error);
     return {
       message: '龙猫服务器错误',
+      paper: null,
     };
   }
 });

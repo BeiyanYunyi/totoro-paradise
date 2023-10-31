@@ -14,6 +14,7 @@ export default defineEventHandler(async (e) => {
     console.log(e);
     return {
       message: '扫码失败',
+      session: null,
     };
   }
   try {
@@ -24,6 +25,7 @@ export default defineEventHandler(async (e) => {
     if (!loginResult.token) {
       return {
         message: loginResult.message!,
+        session: null,
       };
     }
     // 获取额外信息
@@ -36,6 +38,7 @@ export default defineEventHandler(async (e) => {
     console.log(e);
     return {
       message: '龙猫服务器错误',
+      session: null,
     };
   }
 });

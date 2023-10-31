@@ -1,4 +1,4 @@
-import SunRunExercisesRequest from '~~/src/types/requestTypes/SunRunExercisesRequest';
+import type SunRunExercisesRequest from '~~/src/types/requestTypes/SunRunExercisesRequest';
 import TotoroApiWrapper from '~~/src/wrappers/TotoroApiWrapper';
 
 export default defineEventHandler(async (e) => {

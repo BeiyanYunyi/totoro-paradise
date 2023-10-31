@@ -1,8 +1,10 @@
-<template><div id="mapContainer" class="h-full w-full" /></template>
+<template><div id="mapContainer" ref="containerRef" class="h-full w-full" /></template>
 <script setup lang="ts">
 import AMapLoader from '@amap/amap-jsapi-loader';
 import generateRoute from '~~/src/utils/generateRoute';
 
+console.log('client');
+const containerRef = ref<HTMLDivElement | null>(null);
 const sunrunPaper = useSunRunPaper();
 const AMap = shallowRef();
 const map = shallowRef();
@@ -81,13 +83,17 @@ watch([sunrunPaper, map], () => {
   updateLine();
 });
 
-onMounted(async () => {
-  await nextTick();
-  const AMapLoaded = await AMapLoader.load({
-    key: 'af2315aca7fe4d6f21421402aa91a102', // 申请好的Web端开发者Key，首次调用 load 时必填
-    version: '2.0', // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-  });
-  AMap.value = AMapLoaded;
-  map.value = new AMap.value.Map('mapContainer');
-});
+watch(
+  () => containerRef.value,
+  async () => {
+    console.log(containerRef.value);
+    if (!containerRef.value) return;
+    const AMapLoaded = await AMapLoader.load({
+      key: 'af2315aca7fe4d6f21421402aa91a102', // 申请好的Web端开发者Key，首次调用 load 时必填
+      version: '2.0', // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    });
+    AMap.value = AMapLoaded;
+    map.value = new AMap.value.Map(containerRef.value);
+  },
+);
 </script>
