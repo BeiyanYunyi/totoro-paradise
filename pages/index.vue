@@ -25,6 +25,9 @@
         </VBtn>
       </NuxtLink>
     </div>
+    <div class="pre-wrap text-sm">
+      {{ poem[Math.floor(Math.random() * poem.length)].join('\n') }}
+    </div>
   </div>
 </template>
 <script setup lang="ts">

@@ -2,7 +2,7 @@
   "name": "totoro-paradise",
   "author": "BeiyanYunyi & Clansty",
   "license": "AGPL-3.0-or-later",
-  "version": "2.0.4-rev.1",
+  "version": "2.0.4-rev.2",
   "scripts": {
     "start": "node .output/server/index.mjs",
     "build": "nuxt build",

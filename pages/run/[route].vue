@@ -51,7 +51,6 @@ const handleRun = async () => {
   needTime.value = Number(targetTime) - Number(now.value);
   endTime.value = targetTime;
   running.value = true;
-  console.log(req);
 
   await $fetch('/api/run/getRunBegin', {
     method: 'post',

@@ -3,7 +3,6 @@
 import AMapLoader from '@amap/amap-jsapi-loader';
 import generateRoute from '~~/src/utils/generateRoute';
 
-console.log('client');
 const containerRef = ref<HTMLDivElement | null>(null);
 const sunrunPaper = useSunRunPaper();
 const AMap = shallowRef();
@@ -86,7 +85,6 @@ watch([sunrunPaper, map], () => {
 watch(
   () => containerRef.value,
   async () => {
-    console.log(containerRef.value);
     if (!containerRef.value) return;
     const AMapLoaded = await AMapLoader.load({
       key: 'af2315aca7fe4d6f21421402aa91a102', // 申请好的Web端开发者Key，首次调用 load 时必填

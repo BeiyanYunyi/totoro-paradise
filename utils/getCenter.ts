@@ -1,4 +1,4 @@
-import RunPoint from '~~/src/types/RunPoint';
+import type RunPoint from '~~/src/types/RunPoint';
 
 /** 从跑步路径找出地图中心点 */
 const getCenter = (points: RunPoint[]) => {

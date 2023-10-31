@@ -7,7 +7,9 @@ import generateMac from '../utils/generateMac';
 import normalRandom from '../utils/normalRandom';
 import timeUtil from '../utils/timeUtil';
 
-/** @param minTime 最短用时，以分钟计 */
+/** @param minTime 最短用时，以分钟计
+ *  @param maxTime 最长用时，以分钟计
+ */
 const generateRunReq = ({
   distance,
   routeId,
