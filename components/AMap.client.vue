@@ -1,7 +1,7 @@
 <template><div id="mapContainer" ref="containerRef" class="h-full w-full" /></template>
 <script setup lang="ts">
 import AMapLoader from '@amap/amap-jsapi-loader';
-import generateRoute from '~~/src/utils/generateRoute';
+import generateRoute from '~/src/utils/generateRoute';
 
 const containerRef = ref<HTMLDivElement | null>(null);
 const sunrunPaper = useSunRunPaper();
