@@ -83,4 +83,20 @@ const handleRun = async () => {
     running.value = false;
   }, needTime.value);
 };
+
+import { onMounted, onUnmounted } from 'vue';
+onMounted(() => {
+  window.addEventListener('beforeunload', handleBeforeUnload);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('beforeunload', handleBeforeUnload);
+});
+
+function handleBeforeUnload(e: BeforeUnloadEvent) {
+  if (running.value) {
+    e.preventDefault();
+    e.returnValue = '跑步还未完成，确定要离开吗？';
+  }
+}
 </script>
