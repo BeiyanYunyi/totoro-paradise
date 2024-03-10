@@ -94,7 +94,7 @@ onUnmounted(() => {
 });
 
 function handleBeforeUnload(e: BeforeUnloadEvent) {
-  if (running.value) {
+  if (running.value && !runned.value) {
     e.preventDefault();
     e.returnValue = '跑步还未完成，确定要离开吗？';
   }
