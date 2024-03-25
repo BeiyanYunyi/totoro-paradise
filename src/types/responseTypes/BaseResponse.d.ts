@@ -1,6 +1,6 @@
-/* eslint-disable import/no-cycle */
-import { Term } from "./GetSchoolTermResponse";
-import { Score } from "./GetSunRunArchResponse";
+ 
+import type { Term } from "./GetSchoolTermResponse";
+import type { Score } from "./GetSunRunArchResponse";
 
 export default interface BaseResponse {
   status: string;

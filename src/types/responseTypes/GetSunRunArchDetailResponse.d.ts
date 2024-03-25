@@ -1,5 +1,5 @@
-import { Point } from "../RunPoint";
-import BaseResponse from "./BaseResponse";
+import type { Point } from "../RunPoint";
+import type BaseResponse from "./BaseResponse";
 
 export default interface GetSunRunArchDetailResponse extends BaseResponse {
   date: string;

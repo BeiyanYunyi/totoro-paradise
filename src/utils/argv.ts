@@ -1,10 +1,10 @@
 import minimist from "minimist";
 
-type Args = {
+interface Args {
   mac?: string;
   server?: boolean;
   host?: string;
-};
+}
 
 export default minimist(process.argv, {
   string: ["mac", "host"],

@@ -1,8 +1,8 @@
 import Vector from '../classes/Vector';
+import type RunPoint from '../types/RunPoint';
 import distanceOfLine from './distanceCalculator';
 import formatRouteToAMap from './formatRouteToAMap';
 import normalRandom from './normalRandom';
-import RunPoint from '../types/RunPoint';
 
 type Point = [number, number];
 
@@ -36,7 +36,7 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   };
 
   /** 输入一个标准路径数组，返回添加完路径点后的标准路径 */
-  // eslint-disable-next-line consistent-return
+   
   const combinePoints = (): Point[] => {
     const { pointList } = taskToday;
     if (!pointList[0].latitude) throw new Error('任务为空');

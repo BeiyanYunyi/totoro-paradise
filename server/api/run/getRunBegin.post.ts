@@ -1,4 +1,4 @@
-import BasicRequest from '~~/src/types/requestTypes/BasicRequest';
+import type BasicRequest from '~~/src/types/requestTypes/BasicRequest';
 import TotoroApiWrapper from '~~/src/wrappers/TotoroApiWrapper';
 
 export default defineEventHandler(async (e) => {

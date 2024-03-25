@@ -24,7 +24,7 @@ const distanceBetweenPoints = (
   const s22 = d13 * d10;
   const s23 = d11;
   const d14 = Math.sqrt(
-    // eslint-disable-next-line no-restricted-properties
+     
     (s11 - s21) * (s11 - s21) +
       (s12 - s22) * (s12 - s22) +
       (s13 - s23) * (s13 - s23)

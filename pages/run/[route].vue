@@ -1,27 +1,10 @@
-<template>
-  <p class="text-body-1">已选择路径 {{ target.pointName }}</p>
-  <p class="text-body-1">请再次确认是否开跑</p>
-  <p class="text-body-1">开跑时会向龙猫服务器发送请求，所以请尽量不要在开跑后取消</p>
-  <VBtn color="primary" @click="handleRun" v-if="!runned">确认开跑</VBtn>
-  <template v-if="running">
-    <p>{{ timePassed }}/{{ needTime }}</p>
-    <VProgressLinear
-      color="primary"
-      v-if="timePassed && needTime"
-      :model-value="(timePassed / needTime) * 100"
-      height="25"
-      rounded
-    >
-      <strong>{{ Math.ceil((timePassed / needTime) * 100) }}%</strong>
-    </VProgressLinear>
-  </template>
-  <p v-if="runned">跑步完成，去 app 里看记录吧</p>
-</template>
 <script setup lang="ts">
 import { useNow } from '@vueuse/core';
+import { onMounted, onUnmounted } from 'vue';
 import generateRunReq from '~~/src/controllers/generateSunRunExercisesReq';
 import type SunRunExercisesResponse from '~~/src/types/responseTypes/SunRunExercisesResponse';
 import generateRoute from '~~/src/utils/generateRoute';
+
 
 const now = useNow({ interval: 1000 });
 const startTime = ref(new Date());
@@ -83,8 +66,6 @@ const handleRun = async () => {
     running.value = false;
   }, needTime.value);
 };
-
-import { onMounted, onUnmounted } from 'vue';
 onMounted(() => {
   window.addEventListener('beforeunload', handleBeforeUnload);
 });
@@ -100,3 +81,32 @@ function handleBeforeUnload(e: BeforeUnloadEvent) {
   }
 }
 </script>
+<template>
+  <p class="text-body-1">
+    已选择路径 {{ target.pointName }}
+  </p>
+  <p class="text-body-1">
+    请再次确认是否开跑
+  </p>
+  <p class="text-body-1">
+    开跑时会向龙猫服务器发送请求，所以请尽量不要在开跑后取消
+  </p>
+  <VBtn v-if="!runned" color="primary" @click="handleRun">
+    确认开跑
+  </VBtn>
+  <template v-if="running">
+    <p>{{ timePassed }}/{{ needTime }}</p>
+    <VProgressLinear
+      v-if="timePassed && needTime"
+      color="primary"
+      :model-value="(timePassed / needTime) * 100"
+      height="25"
+      rounded
+    >
+      <strong>{{ Math.ceil((timePassed / needTime) * 100) }}%</strong>
+    </VProgressLinear>
+  </template>
+  <p v-if="runned">
+    跑步完成，去 app 里看记录吧
+  </p>
+</template>

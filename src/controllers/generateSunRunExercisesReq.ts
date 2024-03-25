@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import { format, intervalToDuration } from 'date-fns';
 import { v4 as uuidv4 } from 'uuid';
 import type SunRunExercisesRequest from '../types/requestTypes/SunRunExercisesRequest';
@@ -37,7 +37,7 @@ const generateRunReq = ({
   };
   const avgSecond = minSecond + maxSecond / 2;
   /** 正态分布，以最短和最长用时的平均值为平均值，以 1/2 区间的 1/3 为标准差 */
-  let waitSecond = Math.floor(normalRandom(minSecond + maxSecond / 2, (maxSecond - avgSecond) / 3));
+  const waitSecond = Math.floor(normalRandom(minSecond + maxSecond / 2, (maxSecond - avgSecond) / 3));
   const startTime = new Date();
   const endTime = new Date(Number(startTime) + waitSecond * 1000);
   const distanceNum = Number(distance);

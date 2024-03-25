@@ -1,4 +1,4 @@
-import { Point } from "../RunPoint";
+import type { Point } from "../RunPoint";
 
 export default interface SunRunDetailRequest {
   faceData: "";

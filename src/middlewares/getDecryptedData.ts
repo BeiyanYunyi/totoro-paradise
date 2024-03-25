@@ -1,4 +1,4 @@
-import DefaultMiddleware from "../types/DefaultMiddleware";
+import type DefaultMiddleware from "../types/DefaultMiddleware";
 import decryptRequestContent from "../utils/decryptRequestContent";
 
 const getRawData: DefaultMiddleware = (req, res, next) => {

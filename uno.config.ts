@@ -1,9 +1,9 @@
 import {
-  transformerDirectives,
-  transformerVariantGroup,
-  presetWind,
   defineConfig,
   presetIcons,
+  presetWind,
+  transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss';
 
 export default defineConfig({

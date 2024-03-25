@@ -1,16 +1,14 @@
-<template><div id="mapContainer" ref="containerRef" class="h-full w-full" /></template>
 <script setup lang="ts">
 import AMapLoader from '@amap/amap-jsapi-loader';
 import generateRoute from '~/src/utils/generateRoute';
 
+const props = defineProps<{ target: string }>();
+const emit = defineEmits<{ (e: 'update:target', target: string): void }>();
 const containerRef = ref<HTMLDivElement | null>(null);
 const sunrunPaper = useSunRunPaper();
 const AMap = shallowRef();
 const map = shallowRef();
 const routes = computed(() => sunrunPaper.value.runPointList);
-const props = defineProps<{ target: string }>();
-const emit = defineEmits<{ (e: 'update:target', target: string): void }>();
-
 const genPolylineAry = () => {
   const target = routes.value.find((route) => route.pointId === props.target);
   if (!target) return [];
@@ -95,3 +93,4 @@ watch(
   },
 );
 </script>
+<template><div id="mapContainer" ref="containerRef" class="h-full w-full" /></template>

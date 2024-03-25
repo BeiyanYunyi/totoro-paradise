@@ -1,4 +1,4 @@
-import express from "express";
+import type express from "express";
 
 type DefaultMiddleware = (
   req: express.Request,

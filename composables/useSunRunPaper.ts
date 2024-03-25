@@ -1,4 +1,4 @@
-import GetSunRunPaperResponse from '~~/src/types/responseTypes/GetSunRunPaperResponse';
+import type GetSunRunPaperResponse from '~~/src/types/responseTypes/GetSunRunPaperResponse';
 
 const useSunRunPaper = () => useState<GetSunRunPaperResponse>('sunRunPaper');
 

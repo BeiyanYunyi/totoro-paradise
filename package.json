@@ -1,8 +1,10 @@
 {
   "name": "totoro-paradise",
+  "type": "module",
+  "version": "2.0.4-rev.2",
+  "packageManager": "pnpm@8.15.5",
   "author": "BeiyanYunyi & Clansty",
   "license": "AGPL-3.0-or-later",
-  "version": "2.0.4-rev.2",
   "scripts": {
     "start": "node .output/server/index.mjs",
     "build": "nuxt build",
@@ -10,16 +12,6 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@iconify-json/mdi": "^1.1.55",
-    "@types/cli-progress": "^3.11.5",
-    "@types/md5": "^2.3.5",
-    "@types/minimist": "^1.2.5",
-    "@types/node-rsa": "^1.1.4",
-    "@types/uuid": "^9.0.7",
-    "nuxt": "^3.9.1",
-    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
@@ -38,13 +30,26 @@
     "vite-plugin-vuetify": "^2.0.1",
     "vuetify": "^3.4.10"
   },
-  "packageManager": "pnpm@8.14.1",
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.9.0",
+    "@iconify-json/mdi": "^1.1.55",
+    "@types/cli-progress": "^3.11.5",
+    "@types/md5": "^2.3.5",
+    "@types/minimist": "^1.2.5",
+    "@types/node-rsa": "^1.1.4",
+    "@types/uuid": "^9.0.7",
+    "@unocss/eslint-plugin": "^0.58.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
+    "nuxt": "^3.9.1",
+    "typescript": "^5.3.3"
+  },
   "pnpm": {
     "overrides": {
       "has": "npm:@nolyfill/has@latest",
-      "side-channel": "npm:@nolyfill/side-channel@latest",
       "hasown": "npm:@nolyfill/hasown@latest",
-      "isarray": "npm:@nolyfill/isarray@latest"
+      "isarray": "npm:@nolyfill/isarray@latest",
+      "side-channel": "npm:@nolyfill/side-channel@latest"
     }
   }
 }

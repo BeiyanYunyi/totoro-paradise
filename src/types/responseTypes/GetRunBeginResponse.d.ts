@@ -1,4 +1,4 @@
-import BaseResponse from "./BaseResponse";
+import type BaseResponse from "./BaseResponse";
 
 type GetRunBeginResponse = BaseResponse;
 
