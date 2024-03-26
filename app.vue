@@ -3,6 +3,9 @@
 
 const appConfig = useAppConfig();
 </script>
+<script lang="ts">
+window.global = window;
+</script>
 <template>
   <VApp>
     <div class="p-4">

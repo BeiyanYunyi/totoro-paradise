@@ -4,9 +4,10 @@ import inject from '@rollup/plugin-inject';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   pages: true,
+  ssr: false,
   routeRules: { '/totoro/**': { proxy: 'https://app.xtotoro.com/app/**' } },
   vite: {
-    resolve: { alias: { buffer: 'buffer', assert: 'assert' } },
+    resolve: { alias: { buffer: 'buffer', assert: 'assert', crypto: 'crypto-browserify' } },
     plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
     ssr: { noExternal: ['vuetify'] },
     optimizeDeps: {
