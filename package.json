@@ -18,6 +18,8 @@
     "@unocss/nuxt": "^0.58.3",
     "@unocss/reset": "^0.58.3",
     "@vueuse/core": "^10.7.1",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
     "cli-progress": "^3.12.0",
     "colors": "^1.4.0",
     "date-fns": "^2.30.0",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.9.0",
     "@iconify-json/mdi": "^1.1.55",
+    "@rollup/plugin-inject": "^5.0.5",
     "@types/cli-progress": "^3.11.5",
     "@types/md5": "^2.3.5",
     "@types/minimist": "^1.2.5",

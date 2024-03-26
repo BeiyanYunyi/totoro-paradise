@@ -1,9 +1,13 @@
 import vuetify from 'vite-plugin-vuetify';
+import inject from '@rollup/plugin-inject';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   pages: true,
+  routeRules: { '/totoro/**': { proxy: 'https://app.xtotoro.com/app/**' } },
   vite: {
+    resolve: { alias: { buffer: 'buffer', assert: 'assert' } },
+    plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
     ssr: { noExternal: ['vuetify'] },
     optimizeDeps: {
       include: ['@vueuse/core', 'date-fns', 'uuid', 'md5', '@amap/amap-jsapi-loader'],

@@ -7,9 +7,7 @@ const appConfig = useAppConfig();
   <VApp>
     <div class="p-4">
       <NuxtPage />
-      <p class="text-xs">
-        Powered by totoro-paradise v{{ appConfig.version }}
-      </p>
+      <p class="text-xs">Powered by totoro-paradise v{{ appConfig.version }}</p>
     </div>
   </VApp>
 </template>
