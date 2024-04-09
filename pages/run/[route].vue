@@ -85,28 +85,28 @@ function handleBeforeUnload(e: BeforeUnloadEvent) {
   <p class="text-body-1">
     已选择路径 {{ target.pointName }}
   </p>
-  <p class="text-body-1">
+  <p class="text-body-1 mt-2">
     请再次确认是否开跑
   </p>
-  <p class="text-body-1">
+  <p class="text-body-1 mt-2">
     开跑时会向龙猫服务器发送请求，所以请尽量不要在开跑后取消
   </p>
-  <VBtn v-if="!runned" color="primary" @click="handleRun">
+  <VBtn v-if="!runned" color="primary my-4" append-icon="i-mdi-run" @click="handleRun">
     确认开跑
   </VBtn>
   <template v-if="running">
-    <p>{{ timePassed }}/{{ needTime }}</p>
+    <div class="d-flex justify-space-between">
+      <span>{{ timePassed }}/{{ needTime }}</span>
+      <span>{{ Math.ceil((timePassed / needTime) * 100) }}%</span>
+    </div>
     <VProgressLinear
       v-if="timePassed && needTime"
       color="primary"
       :model-value="(timePassed / needTime) * 100"
-      height="25"
-      rounded
-    >
-      <strong>{{ Math.ceil((timePassed / needTime) * 100) }}%</strong>
-    </VProgressLinear>
+      class="mt-2"
+    />
   </template>
-  <p v-if="runned">
-    跑步完成，去 app 里看记录吧
+  <p v-if="runned" class="mt-4">
+    <b>跑步完成，去 App 里看记录吧</b>
   </p>
 </template>

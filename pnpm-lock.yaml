@@ -79,6 +79,9 @@ devDependencies:
   '@iconify-json/mdi':
     specifier: ^1.1.55
     version: 1.1.55
+  '@mdi/font':
+    specifier: ^7.4.47
+    version: 7.4.47
   '@rollup/plugin-inject':
     specifier: ^5.0.5
     version: 5.0.5(rollup@4.9.5)
@@ -981,6 +984,10 @@ packages:
       - supports-color
     dev: true
 
+  /@mdi/font@7.4.47:
+    resolution: {integrity: sha512-43MtGpd585SNzHZPcYowu/84Vz2a2g31TvPMTm9uTiCSWzaheQySUcSyUH/46fPnuPQWof2yd0pGBtzee/IQWw==}
+    dev: true
+
   /@netlify/functions@2.4.1:
     resolution: {integrity: sha512-sRFYBaz6dJP1MdUtk/5QNmshhg5UDmB+DUssmH6v9WUG85MrwyExEfGfJA5eClXATjXm0coTvO5nLAlyCpK7QQ==}
     engines: {node: '>=14.0.0'}
@@ -1360,6 +1367,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1369,6 +1377,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1378,6 +1387,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -1387,6 +1397,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1396,6 +1407,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -1656,6 +1668,7 @@ packages:
     resolution: {integrity: sha512-dkRscpM+RrR2Ee3eOQmRWFjmV/payHEOrjyq1VZegRUa5OrZJ2MAxBNs05bZuY0YCtpqETDy1Ix4i/hRqX98cA==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -1663,6 +1676,7 @@ packages:
     resolution: {integrity: sha512-QaKFVOzzST2xzY4MAmiDmURagWLFh+zZtttuEnuNn19AiZ0T3fhPyjPPGwLNdiDT82ZE91hnfJsUiDwF9DClIQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -1670,6 +1684,7 @@ packages:
     resolution: {integrity: sha512-HeGqmRJuyVg6/X6MpE2ur7GbymBPS8Np0S/vQFHDmocfORT+Zt76qu+69NUoxXzGqVP1pzaY6QIi0FJWLC3OPA==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -1677,6 +1692,7 @@ packages:
     resolution: {integrity: sha512-Dq1bqBdLaZ1Gb/l2e5/+o3B18+8TI9ANlA1SkejZqDgdU/jK/ThYaMPMJpVMMXy2uRHvGKbkz9vheVGdq3cJfA==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -1684,6 +1700,7 @@ packages:
     resolution: {integrity: sha512-ezyFUOwldYpj7AbkwyW9AJ203peub81CaAIVvckdkyH8EvhEIoKzaMFJj0G4qYJ5sw3BpqhFrsCc30t54HV8vg==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 

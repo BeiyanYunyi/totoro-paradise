@@ -23,7 +23,7 @@ const handleUpdate = (target: string) => {
 </script>
 <template>
   <p>请核对个人信息</p>
-  <VTable density="compact">
+  <VTable density="compact" class="mb-6 mt-4">
     <tbody>
       <tr>
         <td>学校</td>
@@ -49,30 +49,33 @@ const handleUpdate = (target: string) => {
       :items="data.paper.runPointList"
       item-title="pointName"
       item-value="pointId"
-      variant="solo"
+      variant="underlined"
       label="路线"
       class="mt-2"
     />
-    <VBtn
-      variant="outlined"
-      color="primary"
-      @click="
-        selectValue =
-          data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
-            .pointId
-      "
-    >
-      随机路线
-    </VBtn>
-    <NuxtLink v-if="selectValue" :to="`/run/${encodeURIComponent(selectValue)}`">
-      <VBtn class="ms-2" color="primary">
+    <div class="flex gap-4">
+      <VBtn
+        variant="outlined"
+        color="primary"
+        append-icon="i-mdi-gesture"
+        @click="
+          selectValue =
+            data!.paper!.runPointList[Math.floor(Math.random() * data!.paper!.runPointList.length)]
+              .pointId
+        "
+      >
+        随机路线
+      </VBtn>
+      <NuxtLink v-if="selectValue" :to="`/run/${encodeURIComponent(selectValue)}`">
+        <VBtn class="ml-auto" color="primary" append-icon="i-mdi-arrow-right">
+          开始跑步
+        </VBtn>
+      </NuxtLink>
+      <VBtn v-else class="ml-auto" color="primary" append-icon="i-mdi-arrow-right" disabled>
         开始跑步
       </VBtn>
-    </NuxtLink>
-    <VBtn v-else class="ms-2" color="primary" disabled>
-      开始跑步
-    </VBtn>
-    <p class="text-xs">
+    </div>
+    <p class="mb-2 mt-6 text-xs">
       地图中的路线仅为展示路线生成效果，不等于最终路线
     </p>
     <div class="h-50vh w-50vw">
