@@ -38,6 +38,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.9.0",
     "@iconify-json/mdi": "^1.1.55",
+    "@mdi/font": "^7.4.47",
     "@rollup/plugin-inject": "^5.0.5",
     "@types/cli-progress": "^3.11.5",
     "@types/md5": "^2.3.5",
