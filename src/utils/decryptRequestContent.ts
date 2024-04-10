@@ -1,5 +1,5 @@
-import NodeRSA from 'node-rsa';
 import rsaKeys from '../data/rsaKeys';
+import NodeRSA from './nodeRSA';
 
 const decryptRequestContent = (req: string): Record<string, unknown> => {
   const rsa = new NodeRSA(rsaKeys.privateKey);
