@@ -864,7 +864,7 @@ var require_main = __commonJS({
             throw new TypeError("argument must be a buffer");
           this.writeByte(e2), this.writeLength(t2.length), this._ensure(t2.length), t2.copy(this._buf, this._offset, 0, t2.length), this._offset += t2.length;
         }, f.prototype.writeStringArray = function(t2) {
-          if (!t2 instanceof Array)
+          if (Array.isArray(t2))
             throw new TypeError("argument must be an Array[String]");
           var e2 = this;
           t2.forEach(function(t3) {

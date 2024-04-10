@@ -28,7 +28,7 @@ import encryptRequestContent from '../utils/encryptRequestContent';
 
 const TotoroApiWrapper = {
   client: ky.create({
-    prefixUrl: 'https://app.xtotoro.com/app/',
+    prefixUrl: '/api/totoro',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       // "Content-Length": "0",
