@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   routeRules: { '/totoro/**': { proxy: 'https://app.xtotoro.com/app/**' } },
   vite: {
     build: { commonjsOptions: { transformMixedEsModules: true } },
-    resolve: { alias: { buffer: 'buffer', assert: 'assert', crypto: 'crypto-browserify' } },
+    resolve: { alias: { buffer: 'buffer' } },
     plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
     ssr: { noExternal: ['vuetify'] },
     optimizeDeps: {
