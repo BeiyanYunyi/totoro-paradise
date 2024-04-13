@@ -3,7 +3,6 @@ import { useNow } from '@vueuse/core';
 import { onMounted, onUnmounted } from 'vue';
 import TotoroApiWrapper from '~/src/wrappers/TotoroApiWrapper';
 import generateRunReq from '~~/src/controllers/generateSunRunExercisesReq';
-import type SunRunExercisesResponse from '~~/src/types/responseTypes/SunRunExercisesResponse';
 import generateRoute from '~~/src/utils/generateRoute';
 
 const now = useNow({ interval: 1000 });
@@ -44,7 +43,7 @@ const handleRun = async () => {
   setTimeout(async () => {
     const res = await TotoroApiWrapper.sunRunExercises(req);
     const runRoute = generateRoute(sunRunPaper.value.mileage, target.value);
-    const sunRunDetailRes = await TotoroApiWrapper.sunRunExercisesDetail({
+    await TotoroApiWrapper.sunRunExercisesDetail({
       pointList: runRoute.mockRoute,
       scantronId: res.scantronId,
       breq: {

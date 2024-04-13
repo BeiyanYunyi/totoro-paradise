@@ -11,7 +11,6 @@ const handleScanned = async () => {
   const code = (scanRes as { code: string; message: null } | { code: null; message: string })
     .code as string;
   try {
-    await TotoroApiWrapper.getRegisterUrl();
     const loginResult = (
       await Promise.all([TotoroApiWrapper.getLesseeServer(code), TotoroApiWrapper.getAppAd(code)])
     )[0];
@@ -20,14 +19,23 @@ const handleScanned = async () => {
       return;
     }
     // 获取额外信息
-    const personalInfo = await TotoroApiWrapper.login({ token: loginResult.token, code });
+    const personalInfo = await TotoroApiWrapper.login({ token: loginResult.token });
     session.value = { ...personalInfo, token: loginResult.token, code, data: null };
+    const breq = {
+      token: loginResult.token,
+      campusId: personalInfo.campusId,
+      schoolId: personalInfo.schoolId,
+      stuNumber: personalInfo.stuNumber,
+    };
+    await TotoroApiWrapper.getAppFrontPage(breq);
+    await TotoroApiWrapper.getAppSlogan(breq);
+    await TotoroApiWrapper.updateAppVersion(breq);
+    await TotoroApiWrapper.getAppNotice(breq);
+    router.push('/scanned');
   } catch (e) {
     console.error(e);
     message.value = '龙猫服务器错误';
   }
-
-  router.push('/scanned');
 };
 </script>
 <template>
