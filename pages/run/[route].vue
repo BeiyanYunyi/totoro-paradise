@@ -81,7 +81,7 @@ function handleBeforeUnload(e: BeforeUnloadEvent) {
     确认开跑
   </VBtn>
   <template v-if="running">
-    <div class="d-flex justify-space-between">
+    <div class="d-flex justify-space-between mt-4">
       <span>{{ timePassed }}/{{ needTime }}</span>
       <span>{{ Math.ceil((timePassed / needTime) * 100) }}%</span>
     </div>
