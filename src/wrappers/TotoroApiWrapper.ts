@@ -59,14 +59,14 @@ const TotoroApiWrapper = {
       .json<GetAppAdResponse>();
   },
 
-  async login({ token, code }: { token: string; code: string }) {
+  async login({ token }: { token: string }) {
     return this.client
       .post('platform/login/login', {
         body: encryptRequestContent({
-          code,
-          latitude: 'null',
-          loginWay: '2',
-          longitude: 'null',
+          code: '',
+          latitude: '',
+          loginWay: '',
+          longitude: '',
           password: '',
           phoneNumber: '',
           token,
@@ -96,9 +96,9 @@ const TotoroApiWrapper = {
       campusId: breq.campusId,
       schoolId: breq.schoolId,
       token: breq.token,
-      version: '2.0.4',
-      deviceType: '1',
-      stuNo: breq.stuNumber,
+      version: '1.2.14',
+      deviceType: '2',
+      stuNumber: breq.stuNumber,
     };
     return this.client
       .post('platform/serverlist/updateAppVersion', {
@@ -110,7 +110,7 @@ const TotoroApiWrapper = {
   async getAppNotice(req: BasicRequest): Promise<GetAppNoticeResponse> {
     return this.client
       .post('platform/serverlist/getAppNotice', {
-        body: encryptRequestContent(req),
+        body: encryptRequestContent({ ...req, version: '' }),
       })
       .json();
   },
@@ -145,7 +145,6 @@ const TotoroApiWrapper = {
     breq: BasicRequest;
   }) {
     const req: SunRunExercisesDetailRequest = {
-      faceData: '',
       pointList,
       scantronId,
       stuNumber: breq.stuNumber,

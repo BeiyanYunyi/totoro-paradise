@@ -19,7 +19,7 @@ const { route } = params as { route: string };
 const runned = computed(() => !running.value && !!needTime.value);
 const target = computed(() => sunRunPaper.value.runPointList.find((r) => r.pointId === route)!);
 const handleRun = async () => {
-  const { req, endTime: targetTime } = generateRunReq({
+  const { req, endTime: targetTime } = await generateRunReq({
     distance: sunRunPaper.value.mileage,
     routeId: target.value.pointId,
     taskId: target.value.taskId,
