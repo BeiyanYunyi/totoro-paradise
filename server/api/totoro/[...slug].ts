@@ -17,11 +17,11 @@ export default defineEventHandler(async (event) => {
     'Content-Type': 'application/json; charset=utf-8',
     // "Content-Length": "0",
     Host: 'app.xtotoro.com',
-    Connection: 'Keep-Alive',
-    'Accept-Encoding': 'gzip',
-    'User-Agent': 'okhttp/4.9.0',
-    cookie: headers.cookie,
-    accept: 'application/json',
+    Connection: 'keep-alive',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'User-Agent': 'TotoroSchool/1.2.14 (iPhone; iOS 17.4.1; Scale/3.00)',
+    Cookie: headers.cookie,
+    Accept: 'application/json',
     'sec-fetch-mode': undefined,
   };
   const path = event.path.replace('/api/totoro/', '/app/');

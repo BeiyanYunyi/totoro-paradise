@@ -36,7 +36,7 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   };
 
   /** 输入一个标准路径数组，返回添加完路径点后的标准路径 */
-   
+
   const combinePoints = (): Point[] => {
     const { pointList } = taskToday;
     if (!pointList[0].latitude) throw new Error('任务为空');
@@ -57,7 +57,6 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   };
 
   /**
-   * @param {string} distance
    * @param {number[][]} route
    */
   const trimRoute = (route: Point[]) => {
@@ -82,8 +81,8 @@ const generateRoute = (distance: string, taskToday: RunPoint) => {
   const trimedRoute = trimRoute(routeAddedPoints);
   return {
     mockRoute: trimedRoute.points.map((xy) => ({
-      longitude: `${xy[0]}`,
-      latitude: `${xy[1]}`,
+      longitude: xy[0].toFixed(6),
+      latitude: xy[1].toFixed(6),
     })),
     distance: (trimedRoute.distance / 1000).toFixed(2),
   };
