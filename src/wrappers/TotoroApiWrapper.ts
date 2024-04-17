@@ -30,7 +30,7 @@ const TotoroApiWrapper = {
   client: ky.create({
     prefixUrl: '/api/totoro',
     headers: {
-      'Content-Type': 'application/json; charset=utf-8',
+      'Content-Type': 'text/plain; charset=utf-8',
       // "Content-Length": "0",
       Host: 'app.xtotoro.com',
       Connection: 'Keep-Alive',
